@@ -1,0 +1,42 @@
+import { defineStore } from "pinia";
+import { computed, ref } from 'vue'
+import axios from 'axios';
+
+export const useClinicasStore = defineStore("clinicas",() =>{
+    //const RUTA = import.meta.env.VUE_APP_RUTA_HISAR
+
+    const clinicas = ref([])
+    const clinicasDatos = ref([])
+    const getClinicas = computed(()=> clinicas.value)
+    const getDatosClinicas = computed(()=>clinicasDatos.value)
+
+    const getAcess = async() => {
+        let result = await axios.post("http://10.0.54.105:90/"+"apis/api/token/",{
+            username: "cnsr",
+            password: "123456",
+        })
+        return result.data.access
+    }
+
+
+    const consultarClinicas = () => {
+       
+        axios.get("http://10.0.54.105:90/"+"apis/cas/",{
+            headers:{ Authorization: "Bearer " + this.getAcess() },
+        }).then((res)=>{
+            for(let i = 0; i<res.data.length; i++){
+                clinicas.value.push(res.data[i].descripCas)
+                clinicasDatos.value.push(res.data[i])
+            }
+        })
+    }
+
+    const clinicaById = (id) => {
+        axios.post()
+    }
+    return {
+        getDatosClinicas,
+        getClinicas,
+        consultarClinicas
+    }    
+})
