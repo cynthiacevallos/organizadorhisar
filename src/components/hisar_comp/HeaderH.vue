@@ -2,7 +2,7 @@
     <div class="barra">
         <!-- <h2>HISAR</h2> -->
         <div class="dropdown show">
-            <a class="btn btn-outline-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+            <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="true">
                 <font-awesome-icon :icon="['fas', 'user']" />
                 Bienvenido {{ usuario }} 
@@ -17,12 +17,24 @@
 </template>
 
 <style scoped>
+*{
+    --honolulu-blue: #0B7AC6ff;
+    --alice-blue: #EBF2FAff;
+    --apple-green: #A4BD2Bff;
+    --antiflash-white: #EFEFEFff;
+    --white: #FFFFFFff;
+}
 .barra {
-    /* background-color: rgba(26, 34, 38, 0.88); */
-    background-color: rgb(0, 122, 201);
+    background-color: var(--antiflash-white);
+    /* background-color: rgba(26, 34, 38, 0.7); */
+    /* background-color: rgb(0, 122, 201); */
+    /* background-color: #000; */
+    /* box-shadow: 1px 1px 1px 1px #ccc; */
+    /* background-color: #f5f5f5; */
+    /* border-bottom: 1px solid #f5f5f5; */
     height: fit-content;
     width: 100%;
-    padding: 10px 20px;
+    padding: 7px 20px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -34,12 +46,12 @@
     margin: 0;
     letter-spacing: 5px;
 }
-.dropdown a{
+/* .dropdown a{
     color: white;
 }
 .dropdown:hover a{
     color: #000;
-}
+} */
 </style>
 
 <script setup>

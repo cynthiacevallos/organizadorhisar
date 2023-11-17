@@ -21,22 +21,22 @@ const router = createRouter({
       component:() => import('../views/GestionCupos/CuposH.vue')
     },
     {
-      path: '/gestion/cupos/add',
+      path: '/cupos/add',
       name:'agregar paciente',
       component: () => import('../views/GestionCupos/FormAddPaciente.vue')
     },
     {
-      path:'/gestion/cupos/asignaciones',
+      path:'/cupos/asignaciones',
       name:'record asignaciones',
       component: () => import('../views/GestionCupos/RecordAsignaciones.vue')
     },
     {
-      path:'/gestion/cupos/listaespera',
+      path:'/cupos/listaespera',
       name:'lista espera',
       component:() => import('../views/GestionCupos/ListaEsperaH.vue')
     },
     {
-      path:'/gestion/cupos/reportes',
+      path:'/cupos/reportes',
       name:'reportes cupos',
       component: () => import('../views/GestionCupos/ReportesCupos.vue')
     },

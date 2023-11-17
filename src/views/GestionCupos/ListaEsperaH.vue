@@ -277,8 +277,13 @@ import Select from '../../components/hisar_comp/InputSelect.vue'
 import ModalMsg from '../../components/hisar_comp/ModalMsg.vue'
 
 const arreglo = reactive([
-    {main: 'Gestion de cupos',sec:[{name:'Inicio',link:'/'},{name:'Asignar Cupo',link:'/gestion/cupos/add'},{name:'Record Asignaciones',link:'/gestion/cupos/asignaciones'},{name:'Lista de espera',link:'/gestion/cupos/listaespera'},{name:'Reporte + Acreditacion',link:'/gestion/cupos/reportes'}], done:true},
-    {main: 'Seguridad',sec:[{name:'Cambio de contraseña',link:'/seguridad'}],done:true}
+    {main: 'Gestion de cupos',sec:[
+        {name:'Inicio',link:'/main',icon: 'house'},
+        {name:'Asignar Cupo',link:'/cupos/add',icon: 'pen-to-square'},
+        {name:'Record Asignaciones',link:'/cupos/asignaciones',icon: 'clipboard'},
+        {name:'Lista de espera',link:'/cupos/listaespera',icon: 'list-ol'},
+        {name:'Reporte + Acreditacion',link:'/cupos/reportes',icon: 'table'}], done:true},
+    // {main: 'Seguridad',sec:[{name:'Cambio de contraseña',link:'/seguridad'}],done:true}
 ])
 
 const user = "USUARIO 1"

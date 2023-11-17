@@ -14,11 +14,11 @@ export const useUsuarioStore = defineStore('usuarios', () => {
         perfil:'',
         clinica: '',
         contra: '',
-        usuario: ''
+        usuario: '',
+        num:''
     })
     const exito = ref(false)
     const storeCas = useClinicasStore()
-
 
     async function getUserByDni(dni) {
         const res = await axios.post(RUTA_SERVIDOR + "apis/api/token/", {
@@ -34,6 +34,7 @@ export const useUsuarioStore = defineStore('usuarios', () => {
         user.value.contra = rpta.data[0].clave
         user.value.usuario = rpta.data[0].usuario
         user.value.perfil = rpta.data[0].perfil
+        user.value.num =rpta.data[0].datosCas.url.split("/")[4] 
         // console.log(rpta.data[0].datosCas.url.split("/")[4])
         // 
         await storeCas.getCLinicaById(rpta.data[0].datosCas.url.split("/")[4])
@@ -45,12 +46,7 @@ export const useUsuarioStore = defineStore('usuarios', () => {
         } else {
             exito.value = false
         }
-    }
-
-    
-
-
-
+    } 
     return { user, exito, getUserByDni, autenticacion, }
 },
 {

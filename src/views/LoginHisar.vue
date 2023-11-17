@@ -36,7 +36,6 @@
 						<font-awesome-icon :icon="['fas', 'circle-exclamation']" />
 						Contraseña equivocada. Intentelo de nuevo
 					</v-alert>
-
 					<!--input type="submit" class="btn" value="Iniciar sesión">-->
 				</form>
 			</div>

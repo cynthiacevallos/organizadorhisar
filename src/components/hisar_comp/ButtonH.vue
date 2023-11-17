@@ -1,7 +1,7 @@
 <template>
     <button class="boton" >
         <font-awesome-icon :icon="['fas', iconos]" size="lg" />
-        <span class="title">{{ title }}</span>
+        <span v-if="title" class="title">{{ title }}</span>
     </button>
 
 </template>
@@ -24,8 +24,9 @@
     }
     .boton:hover{
         cursor: pointer;
-        background-color: v-bind(bgColor);
-        border:2px solid v-bind(bgColor);
+        opacity: 0.84;
+        /* background-color: v-bind(bgColor); */
+        /* border:2px solid v-bind(bgColor); */
         color:#FFF;
     }
     .title{

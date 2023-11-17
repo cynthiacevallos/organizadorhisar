@@ -32,7 +32,9 @@
 
             <div class="menu-items" v-show="mostrar">
                 <div class="tarjeta" style="width: 300px;" v-for="(i, index) in arreglo" :key="index">
-                    <v-chip color="green">ADMISION</v-chip>
+               <div>
+                <!-- <v-chip color="green">ADMISION</v-chip>  -->
+                    </div>
                     <div style="height: 400px">
                         <img :src="i.img" alt="" width="280" height="210" style="border-radius: 20px;" />
                         <h3>{{ i.title }}</h3>
@@ -41,7 +43,9 @@
                     <button class="btn boton" @click="i.func" style="width: 100%">IR </button>
                 </div>
             </div>
+            <!-- <v-autocomplete style="width: 500px;" clearable :items="data" item-title="descripCas" ></v-autocomplete> -->
         </div>
+
     </div>
 </template>
 
@@ -49,9 +53,20 @@
 * {
     font-family: sans-serif;
     box-sizing: border-box;
+    --honolulu-blue: #0B7AC6ff;
+    --alice-blue: #EBF2FAff;
+    --apple-green: #A4BD2Bff;
+    --antiflash-white: #EFEFEFff;
+    --white: #FFFFFFff;
+
+    /* color: #FFF ; */
     /* padding: 10px 0; */
 }
 
+.barra {
+    background-color: var(--honolulu-blue);
+    /* background-color: #007AC9; */
+}
 .header {
     display: flex;
     align-items: center;
@@ -95,11 +110,13 @@
     /* border: 1px solid red; */
     /* background: linear-gradient(200deg, #d1efee, #d1efee); */
 }
-.tarjeta{
+
+.tarjeta {
     box-shadow: 1px 1px 1px 1px #ccc;
     border-radius: 10px;
-    padding: 10px;    
+    padding: 10px;
 }
+
 /* .tarjeta{
     transition: all 1s ease;
 }
@@ -148,12 +165,12 @@
 .descripcion {
     font-style: italic;
 }
-@media screen and (min-width:1300px){
-    .menu-items{
+
+@media screen and (min-width:1300px) {
+    .menu-items {
         justify-content: flex-start;
     }
 }
-
 </style>
 
 <script setup>
@@ -161,7 +178,7 @@
 import ProgressBar from '../components/hisar_comp/ProgressBar.vue'
 import HeaderH from '../components/hisar_comp/HeaderH.vue'
 
-import { reactive, onMounted, ref } from 'vue'
+import { reactive, onMounted, ref, } from 'vue'
 import cupoIc from '../assets/agendar-citas-online.png'
 import bienIc from '../assets/bienes.png'
 import incIc from '../assets/incidencia.jpg'
@@ -171,56 +188,55 @@ import secIc from '../assets/images.png'
 import adIc from '../assets/attendance.jpg'
 
 import { useUsuarioStore } from '../stores/usuario'
-// import { useClinicasStore } from '../stores/clinicas'
-import router from '../router'
 
+import router from '../router'
 const store = useUsuarioStore()
-// const storeCas = useClinicasStore()
+
 
 var arreglo = reactive([
     {
         title: 'Gestion de cupos',
         description: 'Asignacion de cupos a pacientes en Clinicas Contratadas, Reportes de Acreditacion',
         img: cupoIc,
-        perfil:['9','0'],
+        perfil: ['9', '0'],
         func: () => { router.push("/cupos") }
     },
     {
         title: 'Gestion de Admision y Cupos',
         description: 'Asignacion de Asistencia de Pacientes,Reportes de Asistencia',
         img: adIc,
-        perfil:['13','0'],
+        perfil: ['13', '0'],
     },
     {
         title: 'Gestion de Bienes estrategicos',
         description: 'Gestion de delegacion de Bienes estrategicos',
         img: bienIc,
-        perfil:['5','0'],
+        perfil: ['5', '0'],
     },
     {
         title: 'Gestion de Incidencias',
         description: 'Registro y Control de incidencias',
         img: incIc,
-        perfil:['12','0'],
+        perfil: ['12', '0'],
     },
     {
         title: 'Resultados de Laboratorio',
         description: 'Gestion de resultados de laboratorio',
         img: labIc,
-        perfil:['12','0'],
+        perfil: ['0'],
     },
     {
         title: 'Gestion de archivos',
         description: 'Gestion de Archivos ',
         img: fileIc,
-        perfil:['12','0'],
+        perfil: ['12', '0'],
     },
     {
         title: 'Seguridad',
         description: 'Gestion de datos de seguridad del usuario ',
         img: secIc,
-        perfil:['12','0','13','9'],
-        func: () => {router.push("/perfil")}
+        perfil: ['12', '0', '13', '9'],
+        func: () => { router.push("/perfil") }
     }
 ])
 
@@ -229,11 +245,9 @@ var mostrar = ref(false)
 var progress = ref(true)
 var counter = ref(0)
 
-onMounted( async () => {
-    arreglo = arreglo.filter(arr=>arr.perfil.includes(store.user.perfil))
-    // await storeCas.getClinicas()
-    // console.log(storeCas.clinica)
-    // console.log(storeCas.clinica)
+onMounted(async () => {
+    arreglo = arreglo.filter(arr => arr.perfil.includes(store.user.perfil))
+
     const pb = document.querySelector('.progress-bar')
     setTimeout(() => {
         counter.value += 20
@@ -242,7 +256,7 @@ onMounted( async () => {
     setTimeout(() => {
         counter.value += 30
         pb.style.width = '50%'
-    },400)
+    }, 400)
     setTimeout(() => {
         counter.value += 25
         pb.style.width = '75%'
@@ -254,7 +268,6 @@ onMounted( async () => {
     setTimeout(() => {
         mostrar.value = true
         progress.value = false
-
     }, 800)
 })
 </script>

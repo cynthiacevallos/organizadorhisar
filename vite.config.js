@@ -17,11 +17,18 @@ export default defineConfig({
     proxy:{
       '/apis':{
         // target: 'http://10.0.54.105:8000/',
-        target: 'http://10.0.54.88:8060/',
+        target: 'http://10.0.54.88:8080/',
         changeOrigin: true,
         ws:true,
         secure:false,
         rewrite: (path) => path.replace(/^\/apis/, ''),
+      },
+      '/apiloc':{
+        target: 'http://10.0.54.105:8000/',
+        changeOrigin: true,
+        ws:true,
+        secure:false,
+        rewrite: (path) => path.replace(/^\/apiloc/, ''),
       }
     }
   },

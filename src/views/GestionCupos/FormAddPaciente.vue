@@ -118,7 +118,6 @@
     font-size: 17px;
     font-weight: bold;
     width: 15vw;
-    /*padding-right: 100px;*/
 }
 .form-botones{
     display: flex;
@@ -147,8 +146,13 @@
 
     const router = useRouter()
     const arreglo = reactive([
-        {main: 'Gestion de cupos',sec:[{name:'Inicio',link:'/'},{name:'Asignar Cupo',link:'/gestion/cupos/add'},{name:'Record Asignaciones',link:'/gestion/cupos/asignaciones'},{name:'Lista de espera',link:'/gestion/cupos/listaespera'},{name:'Reporte + Acreditacion',link:'/gestion/cupos/reportes'}], done:true},
-        {main: 'Seguridad',sec:[{name:'Cambio de contraseña',link:'/seguridad'}],done:true}
+        {main: 'Gestion de cupos',sec:[
+            {name:'Inicio',link:'/',icon: 'house'},
+            {name:'Asignar Cupo',link:'/gestion/cupos/add',icon: 'pen-to-square'},
+            {name:'Record Asignaciones',link:'/gestion/cupos/asignaciones',icon: 'clipboard'},
+            {name:'Lista de espera',link:'/gestion/cupos/listaespera',icon: 'list-ol'},
+            {name:'Reporte + Acreditacion',link:'/gestion/cupos/reportes',icon: 'table'}], done:true},
+        // {main: 'Seguridad',sec:[{name:'Cambio de contraseña',link:'/seguridad'}],done:true}
     ])
 
     const inicio = () => {

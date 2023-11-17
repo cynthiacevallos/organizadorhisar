@@ -5,7 +5,7 @@ import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faPhone,faRightFromBracket,faPlus,faCircleCheck,faMagnifyingGlass,faFloppyDisk,faXmark,faBan,faPen, faFileExcel, faCircleXmark, faEye,faEyeSlash, faUser, faLock,faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { faPhone,faRightFromBracket,faPlus,faCircleCheck,faMagnifyingGlass,faFloppyDisk,faXmark,faBan,faPen, faFileExcel, faCircleXmark, faEye,faEyeSlash, faUser, faLock,faCircleExclamation,faTable,faHouse,faListOl,faClipboard,faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
 import App from './App.vue'
 import router from './router'
@@ -19,10 +19,11 @@ const vuetify = createVuetify({
   directives,
 });
 
+library.add(faPhone,faRightFromBracket,faPlus,faCircleCheck,faMagnifyingGlass,faFloppyDisk,faXmark,faBan,faPen,faFileExcel,faCircleXmark,faEye,faEyeSlash,faUser,faLock,faCircleExclamation,faTable,faHouse,faListOl,faClipboard,faPenToSquare);
+
 createApp(App).use(vuetify).use(createPinia().use(piniaPluginPersistedstate)).use(router).component("font-awesome-icon", FontAwesomeIcon).mount('#app')
 
 //import stores from './stores'
-library.add(faPhone,faRightFromBracket,faPlus,faCircleCheck,faMagnifyingGlass,faFloppyDisk,faXmark,faBan,faPen,faFileExcel,faCircleXmark,faEye,faEyeSlash,faUser,faLock,faCircleExclamation);
 
 // const app = createApp(App)
 

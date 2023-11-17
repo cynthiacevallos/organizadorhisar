@@ -23,12 +23,14 @@
 
 <style scoped>
 .tabla{
-    background-color: rgba(217,217,217,0.15);
+    /* background-color: rgba(217,217,217,0.15); */
+    /* background-color: white; */
     padding: 20px;
     text-align: center;
     box-shadow: 1px 1px 1px 1px #ccc;
     border-radius: 10px;
     width: 70%;
+    
 }
 .tabla-header{
     border-bottom:1px solid #CCCC;
